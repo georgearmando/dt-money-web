@@ -30,7 +30,8 @@ export function NewTransactionModal() {
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
-      type: 'income'
+      type: 'income',
+    },
   })
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
@@ -69,7 +70,7 @@ export function NewTransactionModal() {
             required
             {...register('category')}
           />
-          
+
           <Controller
             control={control}
             name="type"
