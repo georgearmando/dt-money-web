@@ -11,8 +11,8 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from './styles'
-import { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -24,7 +24,15 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const { createTransaction, closeModal } = useContext(TransactionsContext)
+  const { createTransaction, closeModal } = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return {
+        createTransaction: context.createTransaction,
+        closeModal: context.closeModal,
+      }
+    },
+  )
 
   const {
     control,
