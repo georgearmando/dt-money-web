@@ -15,3 +15,4 @@
     0.2. Se mudou alguma coisa, ele vai permitir o novo fluxo de renderização
 
 # O memo só deve ser usado preferencialmente para componentes que têm um HTML muito grande
+# Muitas vezes é melhor deixar o react recriar o HTML do que ficar a comparar versões diferentes dos hooks e props
